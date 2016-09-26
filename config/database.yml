@@ -2,7 +2,11 @@ development:
   adapter: postgresql
   database: prelaunchr_development
   host: localhost
+  user: jota
+  password: postgres
 test:
   adapter: postgresql
   database: prelaunchr_test
   host: localhost
+  user: jota
+  password: postgres
