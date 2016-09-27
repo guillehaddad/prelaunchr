@@ -1,5 +1,12 @@
+/* FONTS */
+@font-face {
+  font-family: "Mensch";
+  src: url(./fonts/mensch.ttf) format("truetype");
+}
+
 form{
 	margin-bottom: 0;
+	background-color: transparent;
 }
 
 .clearfix:before,
@@ -16,7 +23,11 @@ form{
 /* Home */
 
 html.home{
-	background: #EDECEA;
+	background: image-url("home/hero.jpg") center center no-repeat;
+	background-attachment: fixed !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #home{
@@ -31,18 +42,20 @@ html.home{
 #home .hero{
 	width: 100%;
 	height: 446px;
-	background: image-url("home/hero.jpg") center center no-repeat;
-	background-size: 1600px 446px;
 	overflow: hidden;
 	position: relative;
 	letter-spacing: .09em;
 	margin: 0 auto;
 }
 
+#home .hero img{
+  padding-left: 100px;
+}
+
 #home .hero .large{
 	font-weight: bold;
 	font-size: 40px;
-	color: #074E6F;
+	color: #fff;
 	text-transform: uppercase;
 	margin: 85px 0 0 136px;
 	position: relative;
@@ -52,7 +65,7 @@ html.home{
 
 #home .hero .small{
 	font-weight: bold;
-	color: #955F5D;
+	color: #fff;
 	font-size: 18px;
 	margin: 10px 0 0 115px;
 	line-height: 30px;
@@ -68,6 +81,7 @@ html.home{
 	height: 80px;
 	width: 411px;
 	margin: 23px auto 0;
+	background-color: transparent;
 }
 
 #home .form-wrap .key{
@@ -76,12 +90,13 @@ html.home{
 	margin: 0 auto;
 	background: image-url("home/key.png") 0 0 no-repeat;
 	background-size: 46px 19px;
+	background: transparent;
 }
 
 #home .form-wrap .byline{
 	font-size: 15px;
 	text-transform: uppercase;
-	color: #074E6F;
+	color: #fff;
 	text-align: center;
 	font-weight: bold;
 	letter-spacing: 2px;
@@ -89,6 +104,7 @@ html.home{
 }
 
 #home .form-wrap .email{
+  font-family: "Brandon Grotesque", "brandon-grotesque", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
 	float: left;
 	font-size: 13px;
 	padding: 8px 0 8px 10px;
@@ -232,7 +248,7 @@ html.home{
 }
 
 .brandon{
-	font-family: "Brandon Grotesque", "brandon-grotesque", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	font-family: "Mensch", "Brandon Grotesque", "brandon-grotesque", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
 }
 
 #refer{
@@ -294,7 +310,7 @@ html.home{
 #refer .mammoth{
 	width: 612px;
 	height: 394px;
-	background: image-url("refer/mammoth.png") 0 0 no-repeat;
+	background: image-url("refer/icone-300.jpg") 0 0 no-repeat;
 	background-size: 610px 394px;
 	overflow: hidden;
 	margin-top: 15px;
@@ -631,7 +647,7 @@ only screen and (min-device-pixel-ratio: 2) {
 	}
 
 	#refer .mammoth{
-		background: image-url("refer/mammoth@2x.png") 0 0 no-repeat;
+		background: image-url("refer/icone-500.jpg") 0 0 no-repeat;
 		background-size: 610px 394px;
 	}
 
@@ -670,44 +686,3 @@ only screen and (min-device-pixel-ratio: 2) {
 		background-size: 16px 10px;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
