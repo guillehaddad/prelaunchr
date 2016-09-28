@@ -8,11 +8,11 @@
 <div class="hero">
   <div class="page-content clearfix">
     <div class="mammoth">
-      <span class="need brandon">urv2 e <i class='fa major fa-bitcoin'>itReal</i><br>a evolução do Dinheiro</span>
+      <span class="need brandon"><b><i class="fa fa-bitcoin">itReal</i></b><br>dinheiro da Internet</span>
     </div>
     <div class="share-wrap">
       <p class="why brandon">Não deixe seus amigos para tráz.</p>
-      <p class="title brandon">Convide seus Amigos<br>e ganhe prêmios</p>
+      <p class="title brandon">Convide seus Amigos<br>e ganhe tokens urv2</p>
       <p class="subtitle brandon">Compartilhe o link abaixo via email, Facebook<br>ou Twitter e ganhe premios para<br>cada amigo que se increver.</p>
       <div class="copy-link brandon"><%= root_url %>?ref=<%= @user.referral_code %></div>
       <% twitter_message = "#A evolução do DINHEIRO. Aguardando o lançamento do bitReal." %>
@@ -43,18 +43,20 @@
 %>
 <div class="prizes <% if found %>prize-<%= found["class"] %><% end %>">
   <div class="page-content">
-    <p class="callout brandon">Funciona assim:</p>
+    <p class="callout brandon">Funciona assim: Ganhe 1 urv2 para cada cadastro do seu link + um bônus para meta alcançada</p>
     <ul class="products clearfix">
-      <li class="title brandon"><p class="friends">Amigos inscritos</p><p class="rewards">Prêmios urv2</p></li>
+      <li class="title brandon"><p class="friends">Cadastros</p><p class="rewards">Prêmios</p></li>
       <% stops.each do |stop| %>
         <li class="product brandon <% if stop["selected"] %>selected<% end %> <% if stop["class"] == 'five' %>last<% end %>">
           <div class="circle"><%= stop["count"] %></div>
           <div class="sep"></div>
           <p><%= stop["html"].html_safe %></p>
 
+          <!--
           <div class="tooltip">
             <img src="<%= stop["image"] %>" height="254">
           </div>
+          -->
         </li>
       <% end %>
     </ul>
@@ -68,16 +70,16 @@
     <%
       words = ''
       if referrals_count == 1
-        words = 'amigo inscrito'
+        words = 'amigo cadastrado'
       elsif
-        words = 'amigos inscritos'
+        words = 'amigos cadastrados'
       end
     %>
 
     <% if referrals_count == 0 %>
       <p class="place brandon"><span>Nenhum</span> amigo se increveu...Ainda!</p>
     <% else %>
-      <p class="place brandon"><span><%= referrals_count %></span> <%= words %> joined</p>
+      <p class="place brandon"><span><%= referrals_count %></span> <%= words %>!</p>
     <% end %>
     <p class="check brandon">Continue divulgando!</p>
 

@@ -94,7 +94,7 @@ html.home{
 }
 
 #home .form-wrap .byline{
-	font-size: 15px;
+	font-size: 25px;
 	text-transform: uppercase;
 	color: #fff;
 	text-align: center;
@@ -268,7 +268,7 @@ html.home{
 	width: 100%;
 	overflow:hidden;
 	z-index: 1;
-	position: relative;
+	position:relative;
 }
 
 #refer .header .content{
@@ -310,15 +310,15 @@ html.home{
 #refer .mammoth{
 	width: 612px;
 	height: 394px;
-	background: image-url("refer/icone-300.jpg") 0 0 no-repeat;
-	background-size: 610px 394px;
+	background: image-url("refer/android.jpg") 0 0 no-repeat;
+	background-size: 300px 500px;
 	overflow: hidden;
 	margin-top: 15px;
 	float: left;
 }
 
 #refer .mammoth .need{
-	color: #FFF;
+	color: #074E6F;
 	font-size: 38px;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -328,6 +328,7 @@ html.home{
 	letter-spacing: 4px;
 	text-align: center;
 	width: 284px;
+  float: right;
 }
 
 #refer .share-wrap{
@@ -647,7 +648,7 @@ only screen and (min-device-pixel-ratio: 2) {
 	}
 
 	#refer .mammoth{
-		background: image-url("refer/icone-500.jpg") 0 0 no-repeat;
+		background: image-url("refer/android.jpg") 0 0 no-repeat;
 		background-size: 610px 394px;
 	}
 
