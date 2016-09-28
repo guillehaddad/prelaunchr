@@ -10,3 +10,8 @@ test:
   host: localhost
   user: jota
   password: postgres
+production:
+  adapter: postgresql
+  database: prelaunchr_production
+  host: postgres://nrbzztvdrzeklw:vWLF6ZUVeHjF7yn6f7jX7xkQLV@ec2-54-243-199-79.compute-1.amazonaws.com:5432/d81f12dhfmg9vd
+  password: 90d163110cf8886a24555be24749cb2e76dca6c1d328e1966cb7396ad4b494762fd0f9b68e5ae46362f882693139f454b504845f57d0e773fb577f633fcc0d87
