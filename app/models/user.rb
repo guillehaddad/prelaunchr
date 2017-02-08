@@ -23,21 +23,21 @@ class User < ActiveRecord::Base
     },
     {
       'count' => 10,
-      'html' => '+10<br>urv2',
+      'html' => '+20<br>urv2',
       'class' => 'three',
       'image' => ActionController::Base.helpers.asset_path(
         'refer/truman@2x.png')
     },
     {
       'count' => 25,
-      'html' => '+25<br>urv2',
+      'html' => '+50<br>urv2',
       'class' => 'four',
       'image' => ActionController::Base.helpers.asset_path(
         'refer/winston@2x.png')
     },
     {
       'count' => 50,
-      'html' => '+50<br>urv2',
+      'html' => '+100<br>urv2',
       'class' => 'five',
       'image' => ActionController::Base.helpers.asset_path(
         'refer/blade-explain@2x.png')
