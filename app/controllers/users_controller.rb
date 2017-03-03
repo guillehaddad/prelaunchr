@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :skip_first_page, only: :new
   before_filter :handle_ip, only: :create
+  before_filter :set_user, only: %w(create new edit update)
 
   def new
     @bodyId = 'home'
@@ -20,6 +21,19 @@ class UsersController < ApplicationController
     @user.referrer = User.find_by_referral_code(ref_code) if ref_code
 
     if @user.save
+      cookies[:h_email] = { value: @user.email }
+      redirect_to '/complete-registration'
+    else
+      logger.info("Error saving user with email, #{email}")
+      redirect_to root_path, alert: 'Something went wrong!'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
       cookies[:h_email] = { value: @user.email }
       redirect_to '/refer-a-friend'
     else
@@ -51,6 +65,14 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:email)
+  end
+
+  def set_user
+    @user = User.find_by_email(cookies[:h_email])
+  end
 
   def skip_first_page
     return if Rails.application.config.ended
