@@ -8,6 +8,7 @@ gem 'rails', '4.2.5.2'
 gem 'figaro'
 
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,6 +27,7 @@ end
 
 group :development do
   gem 'thin'
+  gem 'quiet_assets'
 end
 
 # To use ActiveModel has_secure_password
