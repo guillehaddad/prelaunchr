@@ -9,7 +9,7 @@ Prelaunchr::Application.routes.draw do
   post 'users/create' => 'users#create'
   get 'refer-a-friend' => 'users#refer'
   get 'privacy-policy' => 'users#policy'
-  get 'complete-registration' => 'users#edit'
+  get 'complete-registration' => 'users#edit', as: :edit_user
 
   resources :users
 

@@ -33,12 +33,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      cookies[:h_email] = { value: @user.email }
-      redirect_to '/refer-a-friend'
-    else
-      logger.info("Error saving user with email, #{email}")
-      redirect_to root_path, alert: 'Something went wrong!'
+    respond_to do |format|
+      if @user.update(user_params)
+        cookies[:h_email] = { value: @user.email }
+        redirect_to '/refer-a-friend'
+      else
+        format.html { redirect_to edit_user_path, :flash => { error: "Verifique o formulário novamente" } } 
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -67,7 +69,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:name, :rg, :cpf, :titulo, :email)
   end
 
   def set_user
