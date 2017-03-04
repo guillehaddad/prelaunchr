@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130312045541) do
+ActiveRecord::Schema.define(version: 20170303143337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,8 +76,12 @@ ActiveRecord::Schema.define(version: 20130312045541) do
     t.string   "email"
     t.string   "referral_code"
     t.integer  "referrer_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "name"
+    t.string   "rg"
+    t.string   "cpf"
+    t.string   "titulo_eleitor"
   end
 
 end
