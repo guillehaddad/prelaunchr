@@ -1,5 +1,6 @@
 ActiveAdmin.register AdminUser do
   index do
+    column :id
     column :email
     column :current_sign_in_at
     column :last_sign_in_at

@@ -30,13 +30,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if @user.nil?
+      redirect_to root_path
+    end
   end
 
   def update
     respond_to do |format|
       if @user.update(user_params)
         cookies[:h_email] = { value: @user.email }
-        redirect_to '/refer-a-friend'
+         format.html { redirect_to refer_a_friend_path }
       else
         format.html { redirect_to edit_user_path, :flash => { error: "Verifique o formulário novamente" } } 
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
@@ -44,7 +47,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def refer
+  def refer 
     @bodyId = 'refer'
     @is_mobile = mobile_device?
 
@@ -52,9 +55,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.nil?
-        format.html { redirect_to root_path, alert: 'Something went wrong!' }
+        format.html { redirect_to root_path, alert: 'Something went wrong!' }        
       else
-        format.html # refer.html.erb
+        if @user.name.nil?
+          format.html { redirect_to edit_user_path, :flash => { error: "Você deve completar o cadastro" }   }  
+        else
+          format.html
+        end
       end
     end
   end
