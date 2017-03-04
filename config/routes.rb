@@ -10,6 +10,8 @@ Prelaunchr::Application.routes.draw do
   get 'refer-a-friend' => 'users#refer'
   get 'privacy-policy' => 'users#policy'
   get 'complete-registration' => 'users#edit', as: :edit_user
+  get 'terms-of-use' => 'users#terms'
+
 
   resources :users
 
