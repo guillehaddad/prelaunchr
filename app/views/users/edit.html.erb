@@ -4,8 +4,8 @@
 
 <div class="container" id="users_edit_content">
 	<div class="row">
-		<div class="col-sm-5 pull-right">
-		
+		<div class="col-sm-5 pull-right user-painel">
+
 			<div class="panel panel-default">
 				<div class="panel-heading"><h5>Complete seu cadastro</h5></div>
 				<div class="panel-body">
@@ -19,19 +19,23 @@
 
 					<%= form_for @user do |f| %>
 					<div class="form-group">
-						<%= f.text_field :name, class: 'form-control', placeholder: 'Nome', required: true %>
+						<%= f.label :name, "Nome" %>
+						<%= f.text_field :name, class: 'form-control', required: true %>
 					</div>
 
 					<div class="form-group">
-						<%= f.text_field :rg, class: 'form-control', placeholder: 'RG', required: true %>
+						<%= f.label :name, "RG" %>
+						<%= f.text_field :rg, class: 'form-control', required: true %>
 					</div>
 
 					<div class="form-group">
-						<%= f.text_field :cpf, class: 'form-control', placeholder: 'CPF', required: true %>
+						<%= f.label :name, "CPF" %>
+						<%= f.text_field :cpf, class: 'form-control', required: true %>
 					</div>
 
 					<div class="form-group">
-						<%= f.text_field :email, class: 'form-control', placeholder: 'E-mail', required: true %>
+						<%= f.label :name, "E-mail" %>
+						<%= f.text_field :email, class: 'form-control', required: true %>
 					</div>
 
 					<div class="form-group">
