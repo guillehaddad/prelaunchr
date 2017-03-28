@@ -10,7 +10,7 @@ Prelaunchr::Application.configure do
 
   config.eager_load = true
 
-  config.log_level = :error
+  #~/prelaunchr config.log_level = :error
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
