@@ -1,14 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
-
 gem 'activeadmin', '1.0.0.pre2'
 gem 'delayed_job_active_record', '~> 4.0.3'
 gem 'devise'
 gem 'pg'
 gem 'rails', '4.2.5.2'
-gem 'unicorn'
-
+gem 'figaro'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +21,11 @@ group :development, :test do
   gem 'rspec-mocks', '3.4.1'
   gem 'test-unit', '~> 3.0'
   gem "dotenv-rails"
+end
+
+group :development do
+  gem 'thin'
+  gem 'quiet_assets'
 end
 
 # To use ActiveModel has_secure_password

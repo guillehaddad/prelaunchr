@@ -1,14 +1,24 @@
-$(document).ready(function(){
-	var myVideo = document.getElementById('video');
-	console.log(myVideo);
-	if(myVideo){
-		if (typeof myVideo.loop == 'boolean') { // loop supported
-		    myVideo.loop = true;
-		} else { // loop property not supported
-		    myVideo.on('ended', function () {
-		    this.currentTime = 0;
-		    this.play();
-		    }, false);
-		}
+// dont have idea what is it
+//$(document).ready(function(){
+//	var myVideo = document.getElementById('video');
+//	console.log(myVideo);
+//	if(myVideo){
+//		if (typeof myVideo.loop == 'boolean') { // loop supported
+//		    myVideo.loop = true;
+//		} else { // loop property not supported
+//		    myVideo.on('ended', function () {
+//		    this.currentTime = 0;
+//		    this.play();
+//		    }, false);
+//		}
+//	}
+//})
+
+$('#terms').attr('checked', false);
+$("#terms").click(function() {
+	if(this.checked) {
+		$('#submit').removeClass("disabled");
+	} else {
+		$('#submit').addClass("disabled");
 	}
-})
+});

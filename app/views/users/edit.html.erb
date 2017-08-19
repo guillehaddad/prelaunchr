@@ -1,0 +1,56 @@
+<div id="users_edit">
+	<img src="/assets/home/hero-8f1fc0d89c999163829da0fb475511b7a15cdcaffcd364b83aae9fdec2c0da9b.jpg" alt="">
+</div>
+
+<div class="container" id="users_edit_content">
+	<div class="row">
+		<div class="col-sm-5 pull-right user-painel">
+
+			<div class="panel panel-default">
+				<div class="panel-heading"><h5>Complete seu cadastro</h5></div>
+				<div class="panel-body">
+
+					<% if flash[:error] %>
+					<div class="alert alert-warning alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<%= flash[:error] %>
+					</div>
+					<% end %>
+
+					<%= form_for @user do |f| %>
+					<div class="form-group">
+						<%= f.label :name, "Nome" %>
+						<%= f.text_field :name, class: 'form-control', required: true %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :name, "RG" %>
+						<%= f.text_field :rg, class: 'form-control', required: true %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :name, "CPF" %>
+						<%= f.text_field :cpf, class: 'form-control', required: true %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :name, "E-mail" %>
+						<%= f.text_field :email, class: 'form-control', required: true %>
+					</div>
+
+					<div class="form-group">
+						<input type="checkbox" name="checkbox" value="false" id="terms" /> 
+						<%= link_to "Li e concordo com os termos de uso", terms_of_use_path, target: '_blank' %>
+					</div>
+
+					<%= f.submit "Concluir", class: 'btn btn-primary btn-block disabled', id: 'submit' %>
+					<% end %>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_tag 'users', defer: true %>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :skip_first_page, only: :new
   before_filter :handle_ip, only: :create
+  before_filter :set_user, only: %w(create new edit update)
 
   def new
     @bodyId = 'home'
@@ -21,14 +22,32 @@ class UsersController < ApplicationController
 
     if @user.save
       cookies[:h_email] = { value: @user.email }
-      redirect_to '/refer-a-friend'
+      redirect_to '/complete-registration'
     else
       logger.info("Error saving user with email, #{email}")
       redirect_to root_path, alert: 'Something went wrong!'
     end
   end
 
-  def refer
+  def edit
+    if @user.nil?
+      redirect_to root_path
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        cookies[:h_email] = { value: @user.email }
+         format.html { redirect_to refer_a_friend_path }
+      else
+        format.html { redirect_to edit_user_path, :flash => { error: "Verifique o formulário novamente" } } 
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def refer 
     @bodyId = 'refer'
     @is_mobile = mobile_device?
 
@@ -36,9 +55,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.nil?
-        format.html { redirect_to root_path, alert: 'Something went wrong!' }
+        format.html { redirect_to root_path, alert: 'Something went wrong!' }        
       else
-        format.html # refer.html.erb
+        if @user.name.nil?
+          format.html { redirect_to edit_user_path, :flash => { error: "Você deve completar o cadastro" }   }  
+        else
+          format.html
+        end
       end
     end
   end
@@ -50,7 +73,18 @@ class UsersController < ApplicationController
     redirect_to root_path, status: 404
   end
 
+  def terms
+  end
+
   private
+
+  def user_params
+    params.require(:user).permit(:name, :rg, :cpf, :titulo, :email)
+  end
+
+  def set_user
+    @user = User.find_by_email(cookies[:h_email])
+  end
 
   def skip_first_page
     return if Rails.application.config.ended

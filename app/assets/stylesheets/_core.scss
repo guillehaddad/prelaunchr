@@ -633,17 +633,17 @@ only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
 	#home .hero{
-		background: image-url("home/hero@2x.jpg") center center no-repeat;
+		/*background: image-url("home/hero@2x.jpg") center center no-repeat;*/
 		background-size: 1600px 446px;
 	}
 
 	#home .form-wrap .key{
-		background: image-url("home/key@2x.png") 0 0 no-repeat;
+		/*background: image-url("home/key@2x.png") 0 0 no-repeat;*/
 		background-size: 46px 19px;
 	}
 
 	#refer .header .logo{
-		background: image-url("refer/logo@2x.png") 0 0 no-repeat;
+		/*background: image-url("refer/logo@2x.png") 0 0 no-repeat;*/
 		background-size: 106px 19px;
 	}
 
